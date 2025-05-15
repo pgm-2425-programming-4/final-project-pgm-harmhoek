@@ -1,42 +1,91 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #222222;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 1rem;
+  line-height: 1.6;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+thead {
+  background-color: #2c2c2c;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
 }
 
-.card {
-  padding: 2em;
+th {
+  font-weight: 600;
+  color: #f9f9f9;
 }
 
-.read-the-docs {
+tbody tr:hover {
+  background-color: #2a2a2a;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination-buttons button {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination-buttons button:hover {
+  background-color: #444;
+}
+
+.pagination-buttons button:disabled {
+  background-color: #555;
   color: #888;
+  cursor: not-allowed;
+}
+
+.pagination-buttons button.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.page-size-select label {
+  margin-right: 0.5rem;
+}
+
+.page-size-select select {
+  padding: 0.5rem;
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #444;
+  border-radius: 4px;
 }
