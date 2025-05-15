@@ -1,4 +1,6 @@
 
+# This file is used to ignore files and directories that should not be tracked by Git.
+# It is a common practice to include this file in the root of your repository to ensure that    
 
 # Logs
 client/logs
