@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import Backlog from './Backlog.jsx'
 import Pagination from './Pagination.jsx'
+import { API_TOKEN, API_URL } from '../constants/constants.js'
 
 export default function PaginatedBacklog() {
   const [page, setPage] = useState(1)
@@ -9,8 +10,13 @@ export default function PaginatedBacklog() {
 
   const fetchTasks = async () => {
     const res = await fetch(
-      `http://localhost:1337/api/tasks?populate=status_relation&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
-    )
+      `${API_URL}/tasks?populate=status_relation&pagination[page]=${page}&pagination[pageSize]=${pageSize}`,
+      {
+        headers: {
+          Authorization: `Bearer ${API_TOKEN}`
+      }
+    }
+    );
     const data = await res.json()
     return data
   }
