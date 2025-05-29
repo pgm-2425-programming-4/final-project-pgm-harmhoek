@@ -4,8 +4,7 @@ export const API_URL = import.meta.env.PROD
 
 
 export const API_TOKEN = import.meta.env.PROD
-    ? 'PROD token'
+    ? 'caddd05ad9f921da21b7a2d5edfd222edb646f5287d393cd64e3cdf9980fdfd2f2fcc3c7801a11ecdd8eb4ffd61a4c8b871a318b7f58229adbc59b09a6e4fdc5cedf156ce9e35bcc8e6b710a923fb9e097f5d6fdaf1fcfc9330bd9d0d38ad5caaabc80c94a1a1aa7d3e5658903adb9dcfe1e0e9b94faf7f8d9482eafc4833155'
     : '13e6451c82a1c0c3a25a0a606f9e7b3a67f4daf44149720c0cc068ab3885bb2db56404e8e1e4003a9e19a0b16eef6cf796d22741d925c5ec5bfad4f95f51916da0626fd39e339ce19f918e8ad0a546d5c3cfab89cbe9c96e24c6ef37756b105550b1727910359aee762a106f90b73fc49a48d69e1dc26ebd736edc021daf6759';
 
 
-export const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
