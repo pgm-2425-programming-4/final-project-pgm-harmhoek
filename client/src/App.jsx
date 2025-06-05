@@ -1,11 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout";
+import HomePage from "./pages/HomePage";
+import ProjectPage from "./pages/ProjectPage";
 
-import PaginatedBacklog from './components/PaginatedBacklog.jsx'
-
-export default function App() {
+function App() {
   return (
-    <main>
-      <h1>Backlog for PGM3</h1>
-      <PaginatedBacklog />
-    </main>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects/:documentId" element={<ProjectPage />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
+
+export default App;
