@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
   if (isLoading) return <p>Bezig met laden...</p>;
   if (isError) return <p>Fout bij laden: {error.message}</p>;
 
-console.log('Projects:', projects);
 
 
   return (
