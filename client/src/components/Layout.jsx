@@ -31,8 +31,8 @@ const Layout = ({ children }) => {
 
       <main className="content">
         {children}
-        <footer className="footer">
-          <p>&copy; 2023 Project Dashboard</p>
+        <footer className="site-footer">
+        <p>&copy; {new Date().getFullYear()} Project Dashboard — Alle rechten voorbehouden.</p>
         </footer>
       </main>
     </div>

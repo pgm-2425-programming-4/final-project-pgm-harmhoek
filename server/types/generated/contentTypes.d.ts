@@ -408,6 +408,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
 export interface ApiStatusStatus extends Struct.CollectionTypeSchema {
   collectionName: 'statuses';
   info: {
+    description: '';
     displayName: 'status';
     pluralName: 'statuses';
     singularName: 'status';
@@ -436,6 +437,7 @@ export interface ApiStatusStatus extends Struct.CollectionTypeSchema {
 export interface ApiTaskTask extends Struct.CollectionTypeSchema {
   collectionName: 'tasks';
   info: {
+    description: '';
     displayName: 'task';
     pluralName: 'tasks';
     singularName: 'task';
