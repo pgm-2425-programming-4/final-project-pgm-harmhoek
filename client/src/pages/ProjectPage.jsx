@@ -3,6 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { API_URL, API_TOKEN } from '../constants/constants.js';
 import { useTasks } from '../hooks/useTasks';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const TASK_STATUSES = ['To do', 'In progress', 'Ready for review', 'Done'];
 
@@ -79,6 +81,15 @@ const ProjectPage = () => {
           ))}
         </select>
       </div>
+      <div style={{ marginTop: '2rem' }}>
+        <Link
+            to={`/projects/${projectDocumentId}/backlog`}
+            className="backlog-button"
+        >
+             Ga naar backlog
+        </Link>
+        </div>
+
 
       {tasksLoading && <p className="tasks-loading">Taken laden...</p>}
       {tasksError && <p className="tasks-error">Fout bij laden taken: {tasksErrorObj.message}</p>}

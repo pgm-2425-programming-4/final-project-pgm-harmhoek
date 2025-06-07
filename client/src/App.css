@@ -242,3 +242,45 @@ body, html, #root {
     padding: 0.4rem 0.6rem;
   }
 }
+
+.backlog-table-container {
+  margin-top: 2rem;
+}
+
+.backlog-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+.backlog-table-container th,
+.backlog-table-container td {
+  border: 1px solid #ddd;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.backlog-table-container th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-weight: bold;
+}
+
+.backlog-table-container td {
+  background-color: #fff;
+}
+
+.backlog-table-container .task-button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.backlog-table-container .task-button:hover {
+  background-color: #005fa3;
+}
