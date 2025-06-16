@@ -83,9 +83,12 @@ body, html, #root {
 }
 
 .status-columns {
+  max-width: 100%;
   display: flex;
   gap: 1rem;
   overflow-x: auto;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .task-group {
@@ -96,6 +99,8 @@ body, html, #root {
   padding: 1rem;
   min-height: 200px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 300px;
 }
 
 
@@ -243,6 +248,11 @@ body, html, #root {
   }
 }
 
+.backlog-page {
+ margin-left: 2rem;
+  font-family: Arial, sans-serif;
+}
+
 .backlog-table-container {
   margin-top: 2rem;
 }
@@ -283,4 +293,27 @@ body, html, #root {
 
 .backlog-table-container .task-button:hover {
   background-color: #005fa3;
+}
+
+.backlog-button{
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.backlog-button:hover {
+  background-color: #005fa3;
+}
+
+.pagination-buttons {
+  margin-top: 1rem;
+}
+
+.page-size-select {
+  margin-top: 1rem;
 }

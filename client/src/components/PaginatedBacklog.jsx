@@ -71,7 +71,7 @@ export default function PaginatedBacklog() {
   return (
     <div className="backlog-page">
       {projectLoading ? (
-        <p>Project laden...</p>
+        <p>Project laden...</p>           
       ) : projectError ? (
         <p>Fout bij laden project: {projectErrorObj.message}</p>
       ) : (

@@ -62,7 +62,7 @@ const ProjectPage = () => {
   return (
   <div className="project-page">
     <h1 className="project-title">{project?.title || 'Geen titel'}</h1>
-    <p className="project-description">Hier komt het taakbord voor project {project?.title}.</p>
+    <p className="project-description">Welkom op het taakbord voor project {project?.title}.</p>
 
     <section className="tasks-section">
       <h2 className="tasks-title">Taken</h2>
