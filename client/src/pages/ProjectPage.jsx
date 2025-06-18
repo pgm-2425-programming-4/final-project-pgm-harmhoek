@@ -68,7 +68,7 @@ const ProjectPage = () => {
   return (
     <div className="project-page">
       <h1 className="project-title">{project?.title || 'Geen titel'}</h1>
-      <p className="project-description">Welkom op het taakbord voor project {project?.title}</p>
+      <p className="project-description">Welkom op het taakbord voor project {project?.title}.</p>
 
       {successMessage && <div className="success-message">{successMessage}</div>}
 
@@ -195,7 +195,7 @@ const ProjectPage = () => {
                     <p className="modal-description">Geen beschrijving</p>
                   )}
                   <p className="modal-status">Status: {selectedTask.status_relation?.name || 'Onbekend'}</p>
-                  <div style={{ marginTop: '1rem' }}>
+                  <div style={{ marginTop: '1rem', marginBottom: '1rem' }}>
                     <button
                       className="modal-edit"
                       onClick={() => {
@@ -231,6 +231,94 @@ const ProjectPage = () => {
                 </>
               )}
               <button className="modal-close" onClick={closeModal}>Sluiten</button>
+            </div>
+          </div>
+        )}
+
+        {/* Add Task Modal */}
+        {showAddModal && (
+          <div className="modal-overlay" onClick={() => setShowAddModal(false)}>
+            <div className="modal" onClick={(e) => e.stopPropagation()}>
+              <h2 className="modal-title">Nieuwe taak toevoegen</h2>
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+
+                  const newTask = {
+                    title: newTitle,
+                    description: [
+                      {
+                        type: 'paragraph',
+                        children: [{ type: 'text', text: newDescription }],
+                      },
+                    ],
+                    status_relation: {
+                      connect: [{ documentId: newStatus }],
+                    },
+                    project: {
+                      connect: [{ documentId: projectDocumentId }],
+                    },
+                  };
+
+                  try {
+                    const res = await fetch(`${API_URL}/tasks`, {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${API_TOKEN}`,
+                      },
+                      body: JSON.stringify({ data: newTask }),
+                    });
+
+                    if (res.ok) {
+                      setShowAddModal(false);
+                      setNewTitle('');
+                      setNewDescription('');
+                      setNewStatus('');
+                      queryClient.invalidateQueries(['tasks', projectDocumentId]);
+                      setSuccessMessage('Taak succesvol toegevoegd!');
+                      setTimeout(() => setSuccessMessage(''), 3000);
+                    } else {
+                      const err = await res.text();
+                      alert('Fout bij aanmaken taak: ' + err);
+                    }
+                  } catch (err) {
+                    alert('Netwerkfout: ' + err.message);
+                  }
+                }}
+              >
+                <label>
+                  Titel:
+                  <input
+                    type="text"
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)}
+                    required
+                  />
+                </label>
+                <label>
+                  Beschrijving:
+                  <textarea
+                    value={newDescription}
+                    onChange={(e) => setNewDescription(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Status:
+                  <select
+                    value={newStatus}
+                    onChange={(e) => setNewStatus(e.target.value)}
+                    required
+                  >
+                    <option value="">-- Kies een status --</option>
+                    {TASK_STATUSES.map((s) => (
+                      <option key={s.documentId} value={s.documentId}>{s.name}</option>
+                    ))}
+                  </select>
+                </label>
+                <button type="submit">Aanmaken</button>
+                <button type="button" onClick={() => setShowAddModal(false)}>Annuleer</button>
+              </form>
             </div>
           </div>
         )}
